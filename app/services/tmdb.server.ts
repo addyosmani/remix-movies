@@ -12,7 +12,8 @@ export const discoverTVShows = async (
   if (!token) throw new Error("No token provided");
 
   if (!withGenres) {
-    withGenres = "18|10759|80|9648|10768";
+    // withGenres = "18|10759|80|9648|10768";
+    withGenres = "";
     isDefault = true;
   }
 
