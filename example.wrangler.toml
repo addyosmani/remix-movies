@@ -2,4 +2,4 @@ name = "remix-nextui-cloudflare"
 compatibility_date = "2024-02-11"
 
 [vars]
-THE_MOVIE_DB_ACCESS_TOKEN="your_access_token"
+THE_MOVIE_DB_ACCESS_TOKEN=""
