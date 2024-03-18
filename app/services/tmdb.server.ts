@@ -12,8 +12,7 @@ export const discoverTVShows = async (
   if (!token) throw new Error("No token provided");
 
   if (!withGenres) {
-    // withGenres = "18|10759|80|9648|10768";
-    withGenres = "";
+    withGenres = "18|10759|80|9648|10768";
     isDefault = true;
   }
 
@@ -28,20 +27,20 @@ export const discoverTVShows = async (
     .toISOString()
     .split("T")[0];
 
-  let APIUrl = `${baseURL}/discover/tv?air_date.lte=${dateNextMonthFromNowString}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=ko`;
+  let APIUrl = `${baseURL}/discover/tv?air_date.lte=${dateNextMonthFromNowString}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=en`;
 
   if (sortBy === "vote_count.asc") {
     //less popular
     //make sure the shows already aired
     const today = new Date().toISOString().split("T")[0];
-    APIUrl = `${baseURL}/discover/tv?vote_average.lte=6&&first_air_date.lte=${today}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=ko`;
+    APIUrl = `${baseURL}/discover/tv?vote_average.lte=6&&first_air_date.lte=${today}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=en`;
   }
 
   if (sortBy === "vote_count.desc") {
-    // APIUrl = `${baseURL}/discover/tv?vote_count.gte=50&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=ko`;
+    // APIUrl = `${baseURL}/discover/tv?vote_count.gte=50&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=en`;
     //highest rated
     //make sure the shows has vote average of 7 or more
-    APIUrl = `${baseURL}/discover/tv?vote_average.gte=7&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=ko`;
+    APIUrl = `${baseURL}/discover/tv?vote_average.gte=7&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=en`;
   }
 
   if (sortBy === "popularity.desc" || sortBy === "popularity.asc") {
@@ -52,9 +51,9 @@ export const discoverTVShows = async (
     if (sortBy === "popularity.desc") {
       //make sure it has vote average of 7 or more
       //we are using vote average because we want to show popular shows with good ratings
-      APIUrl = `${baseURL}/discover/tv?vote_average.gte=7&air_date.gte=${date7YearsAgo}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=ko`;
+      APIUrl = `${baseURL}/discover/tv?vote_average.gte=7&air_date.gte=${date7YearsAgo}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=en`;
     } else {
-      APIUrl = `${baseURL}/discover/tv?air_date.gte=${date7YearsAgo}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=ko`;
+      APIUrl = `${baseURL}/discover/tv?air_date.gte=${date7YearsAgo}&with_genres=${withGenres}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=${sortBy}&with_original_language=en`;
     }
 
     if (isDefault) {
