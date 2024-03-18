@@ -51,7 +51,7 @@ export default function Header() {
     >
       <NavbarBrand>
         <Link href="/" color="foreground">
-          <p className="font-bold">KDRAMAFLIX</p>
+          <p className="font-bold">TMDB</p>
         </Link>
       </NavbarBrand>
       <NavbarContent className="flex-1" justify="center">
